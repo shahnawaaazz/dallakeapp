@@ -273,10 +273,10 @@ export function getWaterQualityIndex(reading: SensorReading): number {
   return Math.round((phScore * 0.15 + doScore * 0.25 + turbScore * 0.2 + nh3Score * 0.2 + colScore * 0.2));
 }
 
-export function getWQICategory(wqi: number): { label: string; color: string } {
-  if (wqi >= 90) return { label: 'Excellent', color: '#10b981' };
-  if (wqi >= 70) return { label: 'Good', color: '#22c55e' };
-  if (wqi >= 50) return { label: 'Fair', color: '#eab308' };
-  if (wqi >= 25) return { label: 'Poor', color: '#f97316' };
-  return { label: 'Critical', color: '#ef4444' };
+export function getWQICategory(wqi: number): { label: string; color: string; glow: string } {
+  if (wqi >= 90) return { label: 'Excellent', color: '#34d399', glow: 'rgba(52, 211, 153, 0.3)' };
+  if (wqi >= 70) return { label: 'Good', color: '#2dd4bf', glow: 'rgba(45, 212, 191, 0.25)' };
+  if (wqi >= 50) return { label: 'Fair', color: '#fbbf24', glow: 'rgba(251, 191, 36, 0.25)' };
+  if (wqi >= 25) return { label: 'Poor', color: '#fb923c', glow: 'rgba(251, 146, 60, 0.25)' };
+  return { label: 'Critical', color: '#f43f5e', glow: 'rgba(244, 63, 94, 0.3)' };
 }
